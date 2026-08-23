@@ -1,6 +1,13 @@
+import { createClockElement, createDateElement, updateTime } from "./js/clock.js"
+
 const API_KEY = import.meta.env.VITE_NASA_API_KEY;
 
-document.querySelector("#app").innerHTML = `
+const mainElement = document.querySelector("#app");
+
+const clockElement = createClockElement(mainElement);
+const dateElement = createDateElement(mainElement);
+
+`
   <div class="clock">
     9:10 PM
   </div>
@@ -29,6 +36,8 @@ document.querySelector("#app").innerHTML = `
    </div>
   </div>
 `;
+
+updateTime(clockElement, dateElement);
 
 // document.querySelector("#app").innerHTML = "<p>loading</p>";
 
