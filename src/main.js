@@ -1,6 +1,7 @@
 import { createClockElement, createDateElement, updateTime } from "./js/clock.js"
 import { createSearchElement } from "./js/search.js"
 import { createShortcutsElement, addShortcut } from "./js/shortcuts.js"
+import { addBackground } from "./js/background.js"
 
 const API_KEY = import.meta.env.VITE_NASA_API_KEY;
 
@@ -17,6 +18,8 @@ setInterval(() => updateTime(clockElement, dateElement), 1000);
 addShortcut(shortcutsElement, "G", "Google");
 addShortcut(shortcutsElement, "Y", "Youtube");
 addShortcut(shortcutsElement, "G", "Github");
+
+addBackground();
 
 // document.querySelector("#app").innerHTML = "<p>loading</p>";
 
