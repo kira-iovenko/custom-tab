@@ -78,6 +78,15 @@ img, video {
   font-weight: 300;
 }
 
+.clock-separator {
+  opacity: 1;
+  transition: opasity 0.15s;
+}
+
+.clock-separator.hidden {
+  opacity: 0.25;
+}
+
 .date {
   font-size: 2.5rem;
   opacity: 0.75;
