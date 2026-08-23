@@ -1,4 +1,6 @@
 import { createClockElement, createDateElement, updateTime } from "./js/clock.js"
+import { createSearchElement } from "./js/search.js"
+import { createShortcutsElement, addShortcut } from "./js/shortcuts.js"
 
 const API_KEY = import.meta.env.VITE_NASA_API_KEY;
 
@@ -6,38 +8,15 @@ const mainElement = document.querySelector("#app");
 
 const clockElement = createClockElement(mainElement);
 const dateElement = createDateElement(mainElement);
-
-`
-  <div class="clock">
-    9:10 PM
-  </div>
-  <div class="date">
-    Sat, Aug 22
-  </div>
-  <div class="search">
-    <input type="text" placeholder="Search Google">
-  </div>
-  <div class="shortcuts">
-   <div class="shortcut">
-    <div class="shortcut-icon">G</div>
-    <div class="shortcut-name">Google</div>
-   </div>
-   <div class="shortcut">
-    <div class="shortcut-icon">Y</div>
-    <div class="shortcut-name">Youtube</div>
-   </div>
-   <div class="shortcut">
-    <div class="shortcut-icon">G</div>
-    <div class="shortcut-name">GitHub</div>
-   </div>
-   <div class="shortcut">
-    <div class="shortcut-icon">+</div>
-    <div class="shortcut-name">Add new shortcut</div>
-   </div>
-  </div>
-`;
+const searchElement = createSearchElement(mainElement);
+const shortcutsElement = createShortcutsElement(mainElement);
 
 updateTime(clockElement, dateElement);
+setInterval(() => updateTime(clockElement, dateElement), 1000);
+
+addShortcut(shortcutsElement, "G", "Google");
+addShortcut(shortcutsElement, "Y", "Youtube");
+addShortcut(shortcutsElement, "G", "Github");
 
 // document.querySelector("#app").innerHTML = "<p>loading</p>";
 
