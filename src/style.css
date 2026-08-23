@@ -95,13 +95,15 @@ img, video {
 .search {
   min-width: 430px;
   height: 54px;
-  display: fles;
+  display: flex;
   align-content: center;
   justify-content: center;
+  align-items: center;
   border: 2px solid #986aa5;
   border-radius: 25px;
   background-color: rgba(152,106,165,0.5);
   margin-top: 1rem;
+  padding: 0 8px 0 16px;
 }
 
 .search input {
@@ -113,14 +115,26 @@ img, video {
   outline: none;
   border-radius: 25px;
   background-color: transparent;
-  color: white;
-  padding: 0 16px;
+  color: #e1d7f1;
   font-family: 'Black Ops One', sans-serif;
 }
 
 .search input::placeholder {
   color: #986aa5;
   font-family: 'Black Ops One', sans-serif;
+}
+
+.search span {
+  padding: 8px;
+  font-size: 0.75rem;
+  border: 2px solid #986aa5;
+  color: #e1d7f1;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.search span:hover {
+  transform: translateY(-2px);
 }
 
 .shortcuts {
