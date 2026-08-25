@@ -149,7 +149,8 @@ video {
 
 .shortcuts {
   margin-top: 1rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 25px;
 }
 
@@ -161,6 +162,7 @@ video {
   cursor: pointer;
   user-select: none;
   text-decoration: none;
+  position: relative;
 }
 
 .shortcut-icon {
@@ -188,6 +190,36 @@ video {
   margin-top: 0.5rem;
 }
 
+.shortcut-delete {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.7);
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.shortcut:hover .shortcut-delete {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.shortcut-delete:hover {
+  top: -2px;
+  color: white;
+  background-color: rgba(220, 60, 60, 0.5);
+}
+
 p {
   font-size: 0.98rem;
   color: #e1d7f1;
@@ -203,4 +235,96 @@ p {
   #overlay::after {
     display: none;
   }
+}
+
+.modal-overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.modal-overlay.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #986aa5;
+  border-radius: 25px;
+  background-color: rgba(152, 106, 165, 0.75);
+  margin-top: 1rem;
+  padding: 16px;
+  gap: 16px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.modal-close {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  transform: translateY(-2px);
+}
+
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-form input {
+  width: 100%;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.75);
+  color: #986aa5;
+  font-family: 'Black Ops One', sans-serif;
+  padding: 8px 16px;
+}
+
+.modal-form input::placeholder {
+  color: #986aa5;
+  font-family: 'Black Ops One', sans-serif;
+}
+
+.modal-form button {
+  padding: 8px 16px;
+  border-radius: 16px;
+  font-family: 'Black Ops One', sans-serif;
+  font-size: 1.5rem;
+  color: #986aa5;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.modal-form button:hover {
+  transform: translateY(-2px)
 }

@@ -11,8 +11,8 @@ const clockElement = createClockElement(mainElement);
 const dateElement = createDateElement(mainElement);
 const searchElement = createSearchElement(mainElement);
 
-const shortcutsElement = createShortcutsElement(mainElement);
-listShortcuts(shortcutsElement);
+const { shortcutsElement, modalOverlay } = createShortcutsElement(mainElement);
+listShortcuts(shortcutsElement, modalOverlay);
 
 updateTime(clockElement, dateElement);
 setInterval(() => updateTime(clockElement, dateElement), 1000);
