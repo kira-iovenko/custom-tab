@@ -159,6 +159,8 @@ video {
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  user-select: none;
+  text-decoration: none;
 }
 
 .shortcut-icon {
