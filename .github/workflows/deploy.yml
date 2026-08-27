@@ -27,6 +27,7 @@ jobs:
       - run: npm run build
         env:
           VITE_NASA_API_KEY: ${{ secrets.VITE_NASA_API_KEY }}
+          VITE_GITHUB_USER: ${{ secrets.VITE_GITHUB_USER }}
 
       - uses: actions/configure-pages@v4
 
