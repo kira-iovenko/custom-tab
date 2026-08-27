@@ -17,9 +17,19 @@ export function createWidgets(mainElement) {
 }
 
 async function createGithubWidget(widgetsElement) {
-    const username = "kira-iovenko";
+    const GITHUB_USER = import.meta.env.VITE_GITHUB_USER;
 
-    const response = await fetch("https://api.github.com/users/" + username);
+    if (!GITHUB_USER) {
+        widgetsElement.innerHTML += `
+        <div class="widget">
+            <h3>GitHub</h3>
+            <p>Github user is not configured</p>
+        </div>
+        `;
+        return;
+    }
+
+    const response = await fetch("https://api.github.com/users/" + GITHUB_USER);
 
     if (!response.ok) {
         widgetsElement.innerHTML += `

@@ -15,9 +15,9 @@ https://kira-iovenko.github.io/custom-tab/
 - Random background images
 - Dynamic widgets
 
-## Runnint Locally
+## Running Locally
 
-1. Clone the repository and install dependencies:
+Clone the repository and install dependencies:
 
 ```
 git clone https://github.com/kira-iovenko/custom-tab.git
@@ -25,14 +25,30 @@ cd custom-tab
 npm install
 ```
 
-2. Start the server:
+Create local env file:
+
+```
+cp .env.example .env
+```
+
+Then open .env and add your values:
+
+```
+VITE_NASA_API_KEY=your_actual_key_here
+VITE_GITHUB_USER=your_github_username
+```
+
+You can get a free NASA API key from https://api.nasa.gov.
+The github widget uses the username from VITE_GITHUB_USER.
+
+Start the server:
 
 ```
 npm run dev
 
 ```
 
-3. Open http://localhost:5173/custom-tab in your web browser.
+Open http://localhost:5173/custom-tab in your web browser.
 
 ## Made using
 
