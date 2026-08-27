@@ -9,11 +9,11 @@ const widgets = [
     },
 ]
 
-export function createWidgets(mainElement) {
+export async function createWidgets(mainElement) {
     const widgetsElement = createDivElement(mainElement, "widgets");
-    createNasaWidget(widgetsElement);
-    createWeatherWidget(widgetsElement);
-    createGithubWidget(widgetsElement);
+    await createNasaWidget(widgetsElement);
+    await createWeatherWidget(widgetsElement);
+    await createGithubWidget(widgetsElement);
 }
 
 async function createGithubWidget(widgetsElement) {
