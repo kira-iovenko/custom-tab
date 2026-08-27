@@ -1,6 +1,8 @@
 # Custom Tab
 
-Custom Tab is a simple new-tab page for your browser.
+A simple new-tab page for your browser.
+
+<img width="1245" height="872" alt="image" src="https://github.com/user-attachments/assets/57c49bed-1490-41a8-9529-089a67f326e2" />
 
 ## Demo
 
