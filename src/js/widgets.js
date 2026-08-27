@@ -13,6 +13,43 @@ export function createWidgets(mainElement) {
     const widgetsElement = createDivElement(mainElement, "widgets");
     createNasaWidget(widgetsElement);
     createWeatherWidget(widgetsElement);
+    createGithubWidget(widgetsElement);
+}
+
+async function createGithubWidget(widgetsElement) {
+    const username = "kira-iovenko";
+
+    const response = await fetch("https://api.github.com/users/" + username);
+
+    if (!response.ok) {
+        widgetsElement.innerHTML += `
+        <div class="widget">
+            <h3>GitHub</h3>
+            <p>Github user not found</p>
+        </div>
+        `;
+        return;
+    }
+
+    const githubData = await response.json();
+
+    widgetsElement.innerHTML += `
+    <div class="widget">
+        <h3>GitHub</h3>
+        <div class="github-profile">
+            <img class="github-avatar" src="${githubData.avatar_url}">
+            <div>
+                <span class="github-name">${githubData.name}</span>
+                <span class="github-username">@${githubData.login}</span>
+            </div>
+        </div>
+        <div class="stats">
+            <p>${githubData.public_repos} repositories</p>
+            <p>${githubData.followers} followers</p>
+            <p>${githubData.following} following</p>
+        </div>
+    </div>
+    `;
 }
 
 async function createWeatherWidget(widgetsElement) {
@@ -20,8 +57,10 @@ async function createWeatherWidget(widgetsElement) {
 
     if (!location) {
         widgetsElement.innerHTML += `
-        <h3>Weather</h3>
-        <p>Could not load weather</p>
+        <div class="widget">
+            <h3>Weather</h3>
+            <p>Could not load weather</p>
+        </div>
         `;
         return;
     }
@@ -37,7 +76,12 @@ async function createWeatherWidget(widgetsElement) {
     const response = await fetch(url);
 
     if (!response.ok) {
-        widgetsElement.innerHTML += `<p>Error: ${err}</p>`;
+        widgetsElement.innerHTML += `
+        <div class="widget">
+            <h3>Weather</h3>
+            <p>Error: ${err}</p>
+        </div>
+        `;
         return;
     }
 

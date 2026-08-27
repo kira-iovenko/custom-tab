@@ -330,12 +330,14 @@ p {
 
 .widgets {
   width: min(500px, 100%);
-  display: flex;
-  gap: 24px;
+  column-count: 2;
+  column-gap: 24px;
   margin-top: 16px;
 }
 
 .widget {
+  break-inside: avoid;
+  margin-bottom: 24px;
   border: 2px solid #986aa5;
   border-radius: 16px;
   padding: 16px;
@@ -346,3 +348,23 @@ p {
   gap: 8px;
 }
 
+.github-profile {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.github-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.github-name {
+  font-size: 1.2rem;
+}
+
+.github-username {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
